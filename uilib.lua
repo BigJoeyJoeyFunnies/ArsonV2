@@ -1203,33 +1203,34 @@ local function getObjGen()
             Gui.Window.BackgroundTransparency = 1.000
             Gui.Window.Size = UDim2.new(1, 0, 1, 0)
 
-function getRainbowColor(t)
-    local r = math.sin(t * 2 * math.pi) * 127 + 128
-    local g = math.sin(t * 2 * math.pi + 2 * math.pi / 3) * 127 + 128
-    local b = math.sin(t * 2 * math.pi + 4 * math.pi / 3) * 127 + 128
-    return Color3.fromRGB(r, g, b)
-end
-
-local t = 0
-
-Gui.Watermark.Name = "Watermark"
-Gui.Watermark.Parent = Gui.Window
-Gui.Watermark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Gui.Watermark.BackgroundTransparency = 1.000
-Gui.Watermark.Size = UDim2.new(0.5, 0, 0.04, 0) 
-Gui.Watermark.Font = Enum.Font.Gotham
-Gui.Watermark.Text = "nil | nil | nil"
-Gui.Watermark.TextColor3 = getRainbowColor(t)
-Gui.Watermark.TextSize = 28.000  
-Gui.Watermark.TextStrokeTransparency = 0.800
-Gui.Watermark.TextXAlignment = Enum.TextXAlignment.Left
-Gui.Watermark.Position = UDim2.new(0, 0, 0, 0)
-
-game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
-    t = t + deltaTime
-    Gui.Watermark.TextColor3 = getRainbowColor(t)
-end)
-
+            function getRainbowColor(t)
+                local r = math.sin(t * 2 * math.pi) * 127 + 128
+                local g = math.sin(t * 2 * math.pi + 2 * math.pi / 3) * 127 + 128
+                local b = math.sin(t * 2 * math.pi + 4 * math.pi / 3) * 127 + 128
+                return Color3.fromRGB(r, g, b)
+            end
+            
+            local t = 0
+            
+            
+            Gui.Watermark.Name = "Watermark"
+            Gui.Watermark.Parent = Gui.Window
+            Gui.Watermark.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Gui.Watermark.BackgroundTransparency = 1.000
+            Gui.Watermark.Size = UDim2.new(0.5, 0, 0.04, 0) 
+            Gui.Watermark.Font = Enum.Font.Gotham
+            Gui.Watermark.Text = "nil | nil | nil"
+            Gui.Watermark.TextColor3 = getRainbowColor(t)
+            Gui.Watermark.TextSize = 28.000  
+            Gui.Watermark.TextStrokeTransparency = 0.800
+            Gui.Watermark.TextXAlignment = Enum.TextXAlignment.Left
+            Gui.Watermark.Position = UDim2.new(0, 0, 0, 0)
+            
+            game:GetService("RunService").RenderStepped:Connect(function(deltaTime)
+                t = t + deltaTime
+                Gui.Watermark.TextColor3 = getRainbowColor(t)
+            end)
+            
 
             Gui.UIPadding_6.Parent = Gui.Window
             Gui.UIPadding_6.PaddingBottom = UDim.new(0, 8)
